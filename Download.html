@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Selectify V2 - Instalock with us.</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #080f1b;
+      color: #ffffff;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background-color: #080f1b;
+    }
+
+    .navbar .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar .logo a img {
+      height: 100px;
+      margin-right: 10px;
+      cursor: pointer; /* Makes the image look clickable */
+    }
+
+    .navbar .logo span {
+      font-size: 36px; /* Adjust as needed */
+      font-weight: 700; /* Makes the text bold */
+      color: #ffffff; /* Ensures the text is white */
+    }
+
+    .navbar .nav-links {
+      display: flex;
+      gap: 30px;
+    }
+
+    .navbar .nav-links a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
+      position: relative;
+      overflow: hidden;
+      display: inline-block;
+    }
+
+    .navbar .nav-links a::before {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: #f39c12;
+      bottom: 0;
+      left: 0;
+      transition: width 0.3s ease;
+    }
+
+    .navbar .nav-links a:hover::before {
+      width: 100%;
+    }
+
+    .navbar .download-btn {
+      padding: 16px 33px;
+      border-radius: 9px;
+      background: #f39c12;
+      border: none;
+      font-family: inherit;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.4s;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: bold; /* Makes the text bold */
+    }
+
+    .navbar .download-btn:hover {
+      box-shadow: 7px 5px 56px -14px #f39c12;
+      animation: pulse 1s infinite;
+    }
+
+    .navbar .download-btn:active {
+      transform: scale(0.97);
+      box-shadow: 7px 5px 56px -10px #f39c12;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(243, 156, 18, 0.7);
+      }
+      50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 15px rgba(243, 156, 18, 0.7);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(243, 156, 18, 0);
+      }
+    }
+
+    .hero {
+      text-align: center;
+      padding: 100px 20px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 700;
+      color: #ffffff;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero h1 span {
+      color: #f39c12;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #bdc3c7;
+      margin: 20px 0;
+    }
+
+    .hero .download-btn {
+      padding: 16px 33px;
+      border-radius: 9px;
+      background: #f39c12;
+      border: none;
+      font-family: inherit;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.4s;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: bold; /* Makes the text bold */
+      margin-top: 20px;
+    }
+
+    .hero .download-btn:hover {
+      box-shadow: 7px 5px 56px -14px #f39c12;
+      animation: pulse 1s infinite;
+    }
+
+    .hero .download-btn:active {
+      transform: scale(0.97);
+      box-shadow: 7px 5px 56px -10px #f39c12;
+    }
+
+    .steps {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 50px 20px;
+    }
+
+    .step {
+      background-color: #1a1c2c;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      width: 300px;
+      position: relative;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s forwards;
+    }
+
+    .step:nth-child(1) {
+      animation-delay: 0.5s;
+    }
+
+    .step:nth-child(2) {
+      animation-delay: 1s;
+    }
+
+    .step:nth-child(3) {
+      animation-delay: 1.5s;
+    }
+
+    .step h2 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .step p {
+      font-size: 16px;
+      color: #b0b0b0;
+    }
+
+    .step .number {
+      background-color: #f39c12;
+      color: #080f1b;
+      font-weight: 700;
+      padding: 10px;
+      border-radius: 50%;
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .app-screenshot {
+      display: flex;
+      justify-content: center;
+      margin-top: 50px;
+    }
+
+    .app-screenshot iframe {
+      width: 80%;
+      height: 450px; /* Adjust height as needed */
+      border: none;
+      border-radius: 10px;
+      transition: transform 0.5s;
+    }
+
+    .app-screenshot iframe:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <div class="logo">
+      <a href="index.html">
+        <img alt="Selectify logo" src="https://cdn.discordapp.com/attachments/1003341376341159996/1281883090163073076/logo.png?ex=66dd5628&is=66dc04a8&hm=f7667c1d69ab37ff8534af3c81d94d13911d7b6ffbf3da73fbcc55e89b2be0dc&" width="100"/>
+      </a>
+    </div>
+    <div class="nav-links">
+      <a href="#">DOWNLOAD</a>
+      <a href="#">PREMIUM</a>
+      <a href="#">BLOG</a>
+      <a href="#">ABOUT</a>
+    </div>
+    <a class="download-btn" href="https://github.com/Z7LL/Selectify-V2/releases/download/Release/Selectify.V2.Setup.exe" download>DOWNLOAD Selectify</a>
+  </div>
+  <div class="hero">
+    <h1>Experience the <span>difference</span></h1>
+    <p>
+        Selectify is an AI-powered tool designed to instantly lock in agents, faster than competitors in Valorant, giving players the advantage in securing their preferred characters..
+    </p>
+    <p>Supports Windows 10 and higher</p>
+    <a class="download-btn" href="https://github.com/Z7LL/Selectify-V2/releases/download/Release/Selectify.V2.Setup.exe" download>DOWNLOAD Selectify</a>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="number">1</div>
+      <h2>FINISH DOWNLOADING</h2>
+      <p>Your download will start automatically.</p>
+    </div>
+    <div class="step">
+      <div class="number">2</div>
+      <h2>RUN THE INSTALLER</h2>
+      <p>Run installer and wait for it to finish.</p>
+    </div>
+    <div class="step">
+      <div class="number">3</div>
+      <h2>OPEN Selectify V2</h2>
+      <p>Open Selectify and ENJOY 😉.</p>
+    </div>
+  </div>
+  <div class="app-screenshot">
+    <iframe src="https://www.youtube.com/embed/mr7_Pn9w2js" title="Selectify Video" allowfullscreen></iframe>
+  </div>
+</body>
+</html>
